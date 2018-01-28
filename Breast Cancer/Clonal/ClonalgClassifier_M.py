@@ -87,7 +87,7 @@ def carregar(filename):
         antigenos.append(Antigeno(line[1:12],line[0]))
     return antigenos
 
-def main_b(printar = True):
+def main_m(printar = True):
     beta = 10
     cord = 10
     x = 2000
@@ -98,9 +98,9 @@ def main_b(printar = True):
     min_antigen = range(1000,1010,1) 
     max_afi = -10
     min_afi = 10
-    filename = "Memory.p" #Arquivo de celulas de memoria B
+    filename = "Memory_M.p" #Arquivo de celulas de memoria M
 
-    arq = "wdbc.data.outcome_B_training"
+    arq = "wdbc.data.outcome_M_training"
     antigenos = carregar(arq) #Carregar lista de antigenos
     #colocando todas as coordenadas em reais
     for elemento in antigenos:
@@ -180,13 +180,13 @@ def main_b(printar = True):
     pickle_out = open(filename,"w")
     pickle.dump(abr,pickle_out)
     pickle_out.close()
-    if printar == True:
+    if printar == True: 
         for elemento in abr:
             print count,'-',elemento
             count += 1
 if __name__ == '__main__':
     START_TIME = time.time()
-    main_b()
+    main_m()
     print time.time()-START_TIME
         
         
