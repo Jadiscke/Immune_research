@@ -92,10 +92,11 @@ def main_b(printar = True):
     cord = 10
     x = 2000
     n_clones = 5
-    n_bmcells = 100
-    n_bcells = int(math.floor(n_bmcells/0.3 + 1))
+    n_bmcells = 115
+    n_bcells = int(math.floor(n_bmcells/0.5 + 1))
     max_antigen = [0,0,0,0,0,0,0,0,0,0]
     min_antigen = range(1000,1010,1) 
+    
     max_afi = -10
     min_afi = 10
     filename = "Memory.p" #Arquivo de celulas de memoria B
@@ -115,6 +116,12 @@ def main_b(printar = True):
             if (min_antigen[i] > elemento.coordenadas[i]):
                 min_antigen[i] = elemento.coordenadas[i] 
     print "MAX: " + str(max_antigen) + "\n"+"MIN: " + str(min_antigen)
+    max_a_file = open("Max_Antigen.p",'w')
+    min_a_file = open("Min_Antigen.p",'w')
+    pickle.dump(max_antigen,max_a_file)
+    pickle.dump(min_antigen,min_a_file)
+    max_a_file.close()
+    min_a_file.close()
     #Normalizando todos os antigenos
     for elemento in antigenos:
         for i in range(cord):
