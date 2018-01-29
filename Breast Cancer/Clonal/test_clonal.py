@@ -97,8 +97,27 @@ def main():
             errado += 1
         total += 1
   
-    imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\n"
-    return imprimir + imprimir2
+    imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    for at in antigenos:
+        decisao = voto(n,at,test_b,test_m)
+        if decisao == at.tipo:
+            certo += 1
+        else:
+            errado += 1
+        total += 1
+    n += 2
+    imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    for at in antigenos:
+        decisao = voto(n,at,test_b,test_m)
+        if decisao == at.tipo:
+            certo += 1
+        else:
+            errado += 1
+        total += 1
+    
+    n += 2
+    imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\n"
+    return imprimir + imprimir2 +imprimir3 +imprimir4
 
         
 
@@ -109,7 +128,7 @@ def main():
         i += 1 '''
 if __name__ == "__main__":
     START_TIME = time.time()
-    filename = 'resultados.txt'
+    filename = 'resultados_3.txt'
     try:
         f = open(filename,"r+")
     except IOError:
