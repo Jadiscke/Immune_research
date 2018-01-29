@@ -46,26 +46,19 @@ def maior_afinidade(at,test_b,test_m):
     else:
         decisao = 'M'
     return decisao
-def main():
+def tester(max_antigen,min_antigen,antigenos):
     cord = 10
     n = 3
-    percentuais = []
-    antigenos = carregar("wdbc.data.outcome_B")
-    antigenos2 = carregar("wdbc.data.outcome_M")
+    #Carregar anticorpos
     filename = "Memory.p"
     filename2 = "Memory_M.p"
     pickle_read = open(filename,"r")
     pickle_read_M = open(filename2,"r")
-    test_b = pickle.load(pickle_read)
-    test_m = pickle.load(pickle_read_M)
-    max_a_file = open("Max_Antigen.p",'r')
-    min_a_file = open("Min_Antigen.p",'r')
-    max_antigen = pickle.load(max_a_file)
-    min_antigen = pickle.load(min_a_file)
-    distancia_b = 1000
-    distancia_m = 1000
+    test_b = pickle.load(pickle_read) #anticorpos benignos
+    test_m = pickle.load(pickle_read_M) #anticorpos malignos
+   
     distancia = 0
-    antigenos += antigenos2
+
     certo = 0
     errado = 0
     total = 0 
@@ -86,6 +79,7 @@ def main():
             errado += 1
         total += 1
     imprimir ="Maior afinidade - "+str(float(certo)/float(total) * 100)+"%\t"
+    #Zerar
     certo = 0
     errado = 0
     total = 0 
@@ -96,17 +90,13 @@ def main():
         else:
             errado += 1
         total += 1
-  
+    
     imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
-    for at in antigenos:
-        decisao = voto(n,at,test_b,test_m)
-        if decisao == at.tipo:
-            certo += 1
-        else:
-            errado += 1
-        total += 1
+    #Zerar
+    certo = 0
+    errado = 0
+    total = 0 
     n += 2
-    imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
     for at in antigenos:
         decisao = voto(n,at,test_b,test_m)
         if decisao == at.tipo:
@@ -115,7 +105,22 @@ def main():
             errado += 1
         total += 1
     
+
+    imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    #Zerar
+    certo = 0
+    errado = 0
+    total = 0 
     n += 2
+    for at in antigenos:
+        decisao = voto(n,at,test_b,test_m)
+        if decisao == at.tipo:
+            certo += 1
+        else:
+            errado += 1
+        total += 1
+    
+    
     imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\n"
     return imprimir + imprimir2 +imprimir3 +imprimir4
 
@@ -128,7 +133,18 @@ def main():
         i += 1 '''
 if __name__ == "__main__":
     START_TIME = time.time()
-    filename = 'resultados_3.txt'
+    #Abrir Referencia de Antigenos
+    max_a_file = open("Max_Antigen.p",'r')
+    min_a_file = open("Min_Antigen.p",'r')
+    #Carregar Referencia de antigenos para normalizacao
+    max_antigen = pickle.load(max_a_file)
+    min_antigen = pickle.load(min_a_file)
+    #Carregar antigenos
+    antigenos = carregar("wdbc.data.outcome_B")
+    antigenos2 = carregar("wdbc.data.outcome_M")
+    antigenos += antigenos2
+    filename = 'resultados_2.txt'
+    
     try:
         f = open(filename,"r+")
     except IOError:
@@ -137,6 +153,6 @@ if __name__ == "__main__":
     for i in range(100):
         main_b(False)
         main_m(False)
-        f.write(main())
+        f.write(tester(max_antigen,min_antigen,antigenos))
     f.close()            
     print time.time()-START_TIME
