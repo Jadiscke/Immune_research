@@ -90,9 +90,9 @@ def carregar(filename):
 def main_b(printar = True):
     beta = 10
     cord = 10
-    x = 2000
-    n_clones = 5
-    n_bmcells = 115
+    x = 200
+    n_clones = 4
+    n_bmcells = 20
     n_bcells = int(math.floor(n_bmcells/0.5 + 1))
     max_antigen = [0,0,0,0,0,0,0,0,0,0]
     min_antigen = range(1000,1010,1) 

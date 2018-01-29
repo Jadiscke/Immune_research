@@ -1,31 +1,110 @@
-85.9154929577%
-60.9154929577%
-66.9014084507%
-79.9295774648%
-61.2676056338%
-87.676056338%
-85.9154929577%
-78.5211267606%
-91.9014084507%
-89.7887323944%
-85.5633802817%
-64.4366197183%
-79.9295774648%
-91.5492957746%
-88.3802816901%
-64.0845070423%
-82.0422535211%
-88.0281690141%
-88.0281690141%
-85.2112676056%
-83.0985915493%
-84.8591549296%
-90.1408450704%
-76.0563380282%
-80.2816901408%
-
-85.2112676056%
-71.4788732394%
-66.1971830986%
-77.8169014085%
-75.7042253521%
+Maior afinidade - 89.7887323944%	3 votos - 91.5492957746%
+Maior afinidade - 88.0281690141%	3 votos - 87.676056338%
+Maior afinidade - 71.1267605634%	3 votos - 78.5211267606%
+Maior afinidade - 70.4225352113%	3 votos - 80.6338028169%
+Maior afinidade - 83.8028169014%	3 votos - 74.2957746479%
+Maior afinidade - 80.2816901408%	3 votos - 84.5070422535%
+Maior afinidade - 88.0281690141%	3 votos - 75.0%
+Maior afinidade - 81.338028169%	3 votos - 82.3943661972%
+Maior afinidade - 69.3661971831%	3 votos - 72.5352112676%
+Maior afinidade - 83.8028169014%	3 votos - 89.0845070423%
+Maior afinidade - 39.0845070423%	3 votos - 63.0281690141%
+Maior afinidade - 82.7464788732%	3 votos - 84.8591549296%
+Maior afinidade - 54.5774647887%	3 votos - 60.2112676056%
+Maior afinidade - 86.2676056338%	3 votos - 86.2676056338%
+Maior afinidade - 40.4929577465%	3 votos - 60.5633802817%
+Maior afinidade - 79.5774647887%	3 votos - 77.8169014085%
+Maior afinidade - 87.676056338%	3 votos - 89.4366197183%
+Maior afinidade - 87.323943662%	3 votos - 91.5492957746%
+Maior afinidade - 68.3098591549%	3 votos - 80.2816901408%
+Maior afinidade - 83.4507042254%	3 votos - 87.323943662%
+Maior afinidade - 87.323943662%	3 votos - 88.3802816901%
+Maior afinidade - 83.4507042254%	3 votos - 85.2112676056%
+Maior afinidade - 76.0563380282%	3 votos - 88.3802816901%
+Maior afinidade - 88.0281690141%	3 votos - 90.1408450704%
+Maior afinidade - 72.1830985915%	3 votos - 79.9295774648%
+Maior afinidade - 88.3802816901%	3 votos - 88.3802816901%
+Maior afinidade - 89.7887323944%	3 votos - 93.661971831%
+Maior afinidade - 61.6197183099%	3 votos - 68.3098591549%
+Maior afinidade - 84.5070422535%	3 votos - 85.9154929577%
+Maior afinidade - 44.3661971831%	3 votos - 59.8591549296%
+Maior afinidade - 74.6478873239%	3 votos - 65.1408450704%
+Maior afinidade - 84.5070422535%	3 votos - 91.1971830986%
+Maior afinidade - 88.0281690141%	3 votos - 90.8450704225%
+Maior afinidade - 55.6338028169%	3 votos - 71.8309859155%
+Maior afinidade - 75.7042253521%	3 votos - 72.5352112676%
+Maior afinidade - 71.4788732394%	3 votos - 66.9014084507%
+Maior afinidade - 76.4084507042%	3 votos - 61.9718309859%
+Maior afinidade - 78.8732394366%	3 votos - 82.7464788732%
+Maior afinidade - 77.4647887324%	3 votos - 79.9295774648%
+Maior afinidade - 89.4366197183%	3 votos - 89.7887323944%
+Maior afinidade - 89.7887323944%	3 votos - 90.8450704225%
+Maior afinidade - 90.8450704225%	3 votos - 91.9014084507%
+Maior afinidade - 80.6338028169%	3 votos - 69.014084507%
+Maior afinidade - 93.3098591549%	3 votos - 88.7323943662%
+Maior afinidade - 81.338028169%	3 votos - 86.2676056338%
+Maior afinidade - 83.0985915493%	3 votos - 87.676056338%
+Maior afinidade - 94.3661971831%	3 votos - 92.2535211268%
+Maior afinidade - 89.0845070423%	3 votos - 89.0845070423%
+Maior afinidade - 86.6197183099%	3 votos - 90.1408450704%
+Maior afinidade - 88.0281690141%	3 votos - 89.7887323944%
+Maior afinidade - 86.6197183099%	3 votos - 88.3802816901%
+Maior afinidade - 76.4084507042%	3 votos - 81.6901408451%
+Maior afinidade - 79.2253521127%	3 votos - 90.4929577465%
+Maior afinidade - 75.3521126761%	3 votos - 85.9154929577%
+Maior afinidade - 85.9154929577%	3 votos - 90.1408450704%
+Maior afinidade - 91.5492957746%	3 votos - 79.9295774648%
+Maior afinidade - 88.3802816901%	3 votos - 92.9577464789%
+Maior afinidade - 75.7042253521%	3 votos - 86.9718309859%
+Maior afinidade - 66.9014084507%	3 votos - 67.6056338028%
+Maior afinidade - 79.5774647887%	3 votos - 90.8450704225%
+Maior afinidade - 90.1408450704%	3 votos - 91.1971830986%
+Maior afinidade - 69.3661971831%	3 votos - 71.8309859155%
+Maior afinidade - 88.0281690141%	3 votos - 87.323943662%
+Maior afinidade - 85.2112676056%	3 votos - 89.0845070423%
+Maior afinidade - 83.8028169014%	3 votos - 82.0422535211%
+Maior afinidade - 76.4084507042%	3 votos - 91.9014084507%
+Maior afinidade - 67.2535211268%	3 votos - 71.4788732394%
+Maior afinidade - 80.2816901408%	3 votos - 88.0281690141%
+Maior afinidade - 86.2676056338%	3 votos - 88.0281690141%
+Maior afinidade - 62.323943662%	3 votos - 65.1408450704%
+Maior afinidade - 90.1408450704%	3 votos - 89.0845070423%
+Maior afinidade - 75.7042253521%	3 votos - 78.5211267606%
+Maior afinidade - 82.7464788732%	3 votos - 90.8450704225%
+Maior afinidade - 86.9718309859%	3 votos - 85.5633802817%
+Maior afinidade - 85.9154929577%	3 votos - 88.0281690141%
+Maior afinidade - 55.6338028169%	3 votos - 63.7323943662%
+Maior afinidade - 80.2816901408%	3 votos - 90.1408450704%
+Maior afinidade - 90.8450704225%	3 votos - 91.1971830986%
+Maior afinidade - 82.0422535211%	3 votos - 80.6338028169%
+Maior afinidade - 67.6056338028%	3 votos - 70.7746478873%
+Maior afinidade - 85.9154929577%	3 votos - 84.5070422535%
+Maior afinidade - 48.9436619718%	3 votos - 64.0845070423%
+Maior afinidade - 82.0422535211%	3 votos - 76.7605633803%
+Maior afinidade - 84.8591549296%	3 votos - 88.3802816901%
+Maior afinidade - 86.9718309859%	3 votos - 86.6197183099%
+Maior afinidade - 67.6056338028%	3 votos - 71.4788732394%
+Maior afinidade - 85.9154929577%	3 votos - 85.5633802817%
+Maior afinidade - 66.9014084507%	3 votos - 70.0704225352%
+Maior afinidade - 79.5774647887%	3 votos - 84.8591549296%
+Maior afinidade - 65.8450704225%	3 votos - 76.0563380282%
+Maior afinidade - 78.5211267606%	3 votos - 83.8028169014%
+Maior afinidade - 89.0845070423%	3 votos - 89.7887323944%
+Maior afinidade - 61.6197183099%	3 votos - 61.6197183099%
+Maior afinidade - 81.338028169%	3 votos - 88.3802816901%
+Maior afinidade - 87.676056338%	3 votos - 85.9154929577%
+Maior afinidade - 91.1971830986%	3 votos - 86.9718309859%
+Maior afinidade - 92.2535211268%	3 votos - 91.1971830986%
+Maior afinidade - 89.4366197183%	3 votos - 91.1971830986%
+Maior afinidade - 89.7887323944%	3 votos - 90.8450704225%
+Maior afinidade - 91.1971830986%	3 votos - 90.1408450704%
+Maior afinidade - 71.4788732394%	3 votos - 79.2253521127%
+Maior afinidade - 87.676056338%	3 votos - 87.676056338%
+Maior afinidade - 91.1971830986%	3 votos - 92.9577464789%
+Maior afinidade - 85.5633802817%	3 votos - 83.8028169014%
+Maior afinidade - 83.0985915493%	3 votos - 87.676056338%
+Maior afinidade - 61.9718309859%	3 votos - 86.6197183099%
+Maior afinidade - 85.2112676056%	3 votos - 89.4366197183%
+Maior afinidade - 85.2112676056%	3 votos - 88.0281690141%
+Maior afinidade - 72.8873239437%	3 votos - 77.8169014085%
+Maior afinidade - 59.1549295775%	3 votos - 85.2112676056%
