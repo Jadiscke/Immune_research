@@ -46,9 +46,10 @@ def maior_afinidade(at,test_b,test_m):
     else:
         decisao = 'M'
     return decisao
-def tester(max_antigen,min_antigen,antigenos):
+def tester(max_antigen,min_antigen,antigenos,test_n):
     cord = 10
     n = 3
+    
     #Carregar anticorpos
     filename = "Memory.p"
     filename2 = "Memory_M.p"
@@ -58,17 +59,11 @@ def tester(max_antigen,min_antigen,antigenos):
     test_m = pickle.load(pickle_read_M) #anticorpos malignos
    
     distancia = 0
-
     certo = 0
     errado = 0
     total = 0 
-    for elemento in antigenos:
-        for i in range(cord):
-            elemento.coordenadas[i] = float(elemento.coordenadas[i])
-    #Normalizando todos os antigenos
-    for elemento in antigenos:
-        for i in range(cord):
-            elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
+   
+    
 
     
     for at in antigenos:
@@ -119,8 +114,13 @@ def tester(max_antigen,min_antigen,antigenos):
         else:
             errado += 1
         total += 1
-    
-    
+    i = 0
+    filename = str(test_n)+"try"
+    f_t = open(filename,"w")
+
+    for at in antigenos:
+        f_t.write(str(i)+" - "+str(at)) 
+        i += 1
     imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\n"
     return imprimir + imprimir2 +imprimir3 +imprimir4
 
@@ -139,20 +139,31 @@ if __name__ == "__main__":
     #Carregar Referencia de antigenos para normalizacao
     max_antigen = pickle.load(max_a_file)
     min_antigen = pickle.load(min_a_file)
+    filename = 'resultados_4.txt'
     #Carregar antigenos
     antigenos = carregar("wdbc.data.outcome_B")
     antigenos2 = carregar("wdbc.data.outcome_M")
     antigenos += antigenos2
-    filename = 'resultados_2.txt'
-    
+    cord = 10
+    # String -> Float
+    for elemento in antigenos:
+        for i in range(cord):
+            elemento.coordenadas[i] = float(elemento.coordenadas[i])
+    #Normalizando todos os antigenos
+    for elemento in antigenos:
+        for i in range(cord):
+            elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
     try:
         f = open(filename,"r+")
     except IOError:
         f = open(filename,"w")
     f.seek(0,2)
-    for i in range(100):
+    i = 0
+    for i in range(10):
+        antigeno = antigenos[:]
         main_b(False)
         main_m(False)
-        f.write(tester(max_antigen,min_antigen,antigenos))
+        f.write(tester(max_antigen,min_antigen,antigeno,i))
+        i+= 1
     f.close()            
     print time.time()-START_TIME
