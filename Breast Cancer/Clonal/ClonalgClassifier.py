@@ -76,7 +76,7 @@ def ler(filename):
     total_data = []
     for line in f:
         data = line.split(',')
-        data = data[1:12]
+        data = data[0:11]
         total_data.append(data)
     return total_data
 #importa antigenos
@@ -84,7 +84,7 @@ def carregar(filename):
     data = ler(filename)
     antigenos = []
     for line in data:
-        antigenos.append(Antigeno(line[1:12],line[0]))
+        antigenos.append(Antigeno(line[1:11],line[0]))
     return antigenos
 
 def main_b(printar = True):

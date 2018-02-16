@@ -11,7 +11,7 @@ def read_data(filename):
         total_data.append(data)
     return total_data
 
-def separate_on_outcome(filename, outcome_index, separate_training_data=False, training_percentage=0.5):
+def separate_on_outcome(filename, outcome_index, separate_training_data=False, training_percentage=0.7):
     data = read_data(filename)
     outcomes = {}
     for line in data:

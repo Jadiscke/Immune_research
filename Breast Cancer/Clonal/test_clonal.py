@@ -1,4 +1,5 @@
 import pickle
+import csv
 from ClonalgClassifier import Anticorpo, Antigeno, carregar, ler, normalizar
 from ClonalgClassifier import distancia_euclidiana, main_b
 from ClonalgClassifier_M import main_m
@@ -49,7 +50,7 @@ def maior_afinidade(at,test_b,test_m):
 def tester(max_antigen,min_antigen,antigenos,test_n):
     cord = 10
     n = 3
-    
+    imp  = []
     #Carregar anticorpos
     filename = "Memory.p"
     filename2 = "Memory_M.p"
@@ -74,6 +75,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
             errado += 1
         total += 1
     imprimir ="Maior afinidade - "+str(float(certo)/float(total) * 100)+"%\t"
+    imp.append(imprimir)
     #Zerar
     certo = 0
     errado = 0
@@ -87,6 +89,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         total += 1
     
     imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    imp.append(imprimir2)
     #Zerar
     certo = 0
     errado = 0
@@ -102,6 +105,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
     
 
     imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    imp.append(imprimir3)
     #Zerar
     certo = 0
     errado = 0
@@ -122,7 +126,8 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         f_t.write(str(i)+" - "+str(at)) 
         i += 1
     imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\n"
-    return imprimir + imprimir2 +imprimir3 +imprimir4
+    imp.append(imprimir4)
+    return imp
 
         
 
@@ -139,7 +144,7 @@ if __name__ == "__main__":
     #Carregar Referencia de antigenos para normalizacao
     max_antigen = pickle.load(max_a_file)
     min_antigen = pickle.load(min_a_file)
-    filename = 'resultados_4.txt'
+    filename = 'resultados.csv'
     #Carregar antigenos
     antigenos = carregar("wdbc.data.outcome_B")
     antigenos2 = carregar("wdbc.data.outcome_M")
@@ -154,16 +159,17 @@ if __name__ == "__main__":
         for i in range(cord):
             elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
     try:
-        f = open(filename,"r+")
+        f = open(filename,"rb+")
     except IOError:
-        f = open(filename,"w")
+        f = open(filename,"wb")
+    writer = csv.writer(f,delimiter = ' ')
     f.seek(0,2)
     i = 0
     for i in range(10):
         antigeno = antigenos[:]
         main_b(False)
         main_m(False)
-        f.write(tester(max_antigen,min_antigen,antigeno,i))
+        writer.writerows(tester(max_antigen,min_antigen,antigeno,i))
         i+= 1
     f.close()            
     print time.time()-START_TIME
