@@ -57,15 +57,16 @@ def separate_MB(data, filename, train = False):
     f_b.close()
     f_m.close()
 
-
-
-
-
-if __name__ == '__main__':
-    START_TIME = time.time()
+def db_separator():
     name = 'wdbc.data'
     n_data = data_shuffle(name)
     data_train,data_test = separate_data(n_data,name,0.7)
     separate_MB(data_train,name,train = True)
     separate_MB(data_test,name)
+
+
+
+if __name__ == '__main__':
+    START_TIME = time.time()
+    db_separator()
     print time.time()-START_TIME
