@@ -4,6 +4,7 @@ from ClonalgClassifier import Anticorpo, Antigeno, carregar, ler, normalizar
 from ClonalgClassifier import distancia_euclidiana, main_b
 from ClonalgClassifier_M import main_m
 import time 
+from db_separator_2 import db_separator
 
 def voto(n_votos,at,test_b,test_m):
     #Retorna o chute do se antigenos se baseando nos votos
@@ -74,7 +75,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         else:
             errado += 1
         total += 1
-    imprimir ="Maior afinidade - "+str(float(certo)/float(total) * 100)+"%\t"
+    imprimir ="Maior afinidade - "+str(float(certo)/float(total) * 100)+"\t"
     imp.append(imprimir)
     #Zerar
     certo = 0
@@ -88,7 +89,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
             errado += 1
         total += 1
     
-    imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\t"
     imp.append(imprimir2)
     #Zerar
     certo = 0
@@ -104,7 +105,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         total += 1
     
 
-    imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\t"
+    imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\t"
     imp.append(imprimir3)
     #Zerar
     certo = 0
@@ -125,7 +126,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
     for at in antigenos:
         f_t.write(str(i)+" - "+str(at)) 
         i += 1
-    imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"%\n"
+    imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\n"
     imp.append(imprimir4)
     return imp
 
@@ -138,26 +139,7 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         i += 1 '''
 if __name__ == "__main__":
     START_TIME = time.time()
-    #Abrir Referencia de Antigenos
-    max_a_file = open("Max_Antigen.p",'r')
-    min_a_file = open("Min_Antigen.p",'r')
-    #Carregar Referencia de antigenos para normalizacao
-    max_antigen = pickle.load(max_a_file)
-    min_antigen = pickle.load(min_a_file)
     filename = 'resultados.csv'
-    #Carregar antigenos
-    antigenos = carregar("wdbc.data.outcome_B")
-    antigenos2 = carregar("wdbc.data.outcome_M")
-    antigenos += antigenos2
-    cord = 10
-    # String -> Float
-    for elemento in antigenos:
-        for i in range(cord):
-            elemento.coordenadas[i] = float(elemento.coordenadas[i])
-    #Normalizando todos os antigenos
-    for elemento in antigenos:
-        for i in range(cord):
-            elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
     try:
         f = open(filename,"rb+")
     except IOError:
@@ -166,9 +148,32 @@ if __name__ == "__main__":
     f.seek(0,2)
     i = 0
     for i in range(10):
-        antigeno = antigenos[:]
+        db_separator()
         main_b(False)
         main_m(False)
+        #Abrir Referencia de Antigenos
+        max_a_file = open("Max_Antigen.p",'r')
+        min_a_file = open("Min_Antigen.p",'r')
+        #Carregar Referencia de antigenos para normalizacao
+        max_antigen = pickle.load(max_a_file)
+        min_antigen = pickle.load(min_a_file)
+        max_a_file.close()
+        min_a_file.close()
+        #Carregar antigenos
+        antigenos = carregar("wdbc.data.outcome_B")
+        antigenos2 = carregar("wdbc.data.outcome_M")
+        antigenos += antigenos2
+        cord = 10
+        # String -> Float
+        for elemento in antigenos:
+            for i in range(cord):
+                elemento.coordenadas[i] = float(elemento.coordenadas[i])
+        #Normalizando todos os antigenos
+        for elemento in antigenos:
+            for i in range(cord):
+                elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
+        
+        antigeno = antigenos[:]
         writer.writerows(tester(max_antigen,min_antigen,antigeno,i))
         i+= 1
     f.close()            

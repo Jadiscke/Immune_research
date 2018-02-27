@@ -20,7 +20,7 @@ def data_shuffle(filename):
     random.shuffle(new_data)
     random.shuffle(new_data)
     return new_data
-def separate_data(data, filename, percentage = 0.5):
+def separate_data(data):
     '''
     Separa dados em Training e Test
     '''
@@ -60,7 +60,7 @@ def separate_MB(data, filename, train = False):
 def db_separator():
     name = 'wdbc.data'
     n_data = data_shuffle(name)
-    data_train,data_test = separate_data(n_data,name,0.7)
+    data_train,data_test = separate_data(n_data)
     separate_MB(data_train,name,train = True)
     separate_MB(data_test,name)
 
