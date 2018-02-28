@@ -5,7 +5,6 @@ from ClonalgClassifier import distancia_euclidiana, main_b
 from ClonalgClassifier_M import main_m
 import time 
 from db_separator_2 import db_separator
-
 def voto(n_votos,at,test_b,test_m):
     #Retorna o chute do se antigenos se baseando nos votos
     #dos n melhores chutes
@@ -70,13 +69,16 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
     
     for at in antigenos:
         decisao = maior_afinidade(at,test_b,test_m)
+        print "Decisao - "+ decisao +" Original - " + at.tipo
         if decisao == at.tipo:
             certo += 1
         else:
             errado += 1
         total += 1
-    imprimir ="Maior afinidade - "+str(float(certo)/float(total) * 100)+"\t"
-    imp.append(imprimir)
+    #imprimir ="Maior afinidade - "+str(float(certo)/float(total) * 100)+"\t"
+    percent = float(certo)/float(total) * 100
+    #imp.append(imprimir)
+    imp.append(percent)
     #Zerar
     certo = 0
     errado = 0
@@ -89,8 +91,10 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
             errado += 1
         total += 1
     
-    imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\t"
-    imp.append(imprimir2)
+    #imprimir2 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\t"
+    percent2 = float(certo)/float(total) * 100
+    #imp.append(imprimir2)
+    imp.append(percent2)
     #Zerar
     certo = 0
     errado = 0
@@ -105,8 +109,10 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         total += 1
     
 
-    imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\t"
-    imp.append(imprimir3)
+    #imprimir3 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\t"
+    percent3 = float(certo)/float(total) * 100
+    #imp.append(imprimir3)
+    imp.append(percent3)
     #Zerar
     certo = 0
     errado = 0
@@ -119,15 +125,11 @@ def tester(max_antigen,min_antigen,antigenos,test_n):
         else:
             errado += 1
         total += 1
-    i = 0
-    filename = str(test_n)+"try"
-    f_t = open(filename,"w")
 
-    for at in antigenos:
-        f_t.write(str(i)+" - "+str(at)) 
-        i += 1
-    imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\n"
-    imp.append(imprimir4)
+    #imprimir4 = str(n)+" votos - "+str(float(certo)/float(total) * 100)+"\n"
+    percent4 = float(certo)/float(total) * 100
+    #imp.append(imprimir4)
+    imp.append(percent4)
     return imp
 
         
@@ -144,10 +146,12 @@ if __name__ == "__main__":
         f = open(filename,"rb+")
     except IOError:
         f = open(filename,"wb")
-    writer = csv.writer(f,delimiter = ' ')
+    writer = csv.writer(f,delimiter = ' ',quotechar ='|', quoting = csv.QUOTE_MINIMAL )
     f.seek(0,2)
     i = 0
-    for i in range(10):
+    n = 10
+    results = [0.0,0.0,0.0,0.0]
+    for i in range(n):
         db_separator()
         main_b(False)
         main_m(False)
@@ -165,16 +169,29 @@ if __name__ == "__main__":
         antigenos += antigenos2
         cord = 10
         # String -> Float
+        k = 0
         for elemento in antigenos:
-            for i in range(cord):
-                elemento.coordenadas[i] = float(elemento.coordenadas[i])
+            for k in range(cord):
+                elemento.coordenadas[k] = float(elemento.coordenadas[k])
         #Normalizando todos os antigenos
+        k = 0
         for elemento in antigenos:
-            for i in range(cord):
-                elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
-        
+            for k in range(cord):
+                elemento.coordenadas[k] = normalizar(elemento.coordenadas[k],min_antigen[k],max_antigen[k])
+
         antigeno = antigenos[:]
-        writer.writerows(tester(max_antigen,min_antigen,antigeno,i))
+        c = 0
+        r = tester(max_antigen,min_antigen,antigeno,i)
+        writer.writerow(str(i)+"-"+str(r))
+        for c in range(4):
+            results[c] += r[c]
+            c  += 1
         i+= 1
+    i = 0
+    writer.writerow("Media")
+    for i in range(4):
+        results[i] = results[i]/n
+    writer.writerow(str(results))
+    print results
     f.close()            
     print time.time()-START_TIME

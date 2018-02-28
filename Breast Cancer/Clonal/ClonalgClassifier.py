@@ -92,8 +92,8 @@ def main_b(printar = True):
     cord = 10
     x = 1000
     n_clones = 4
-    n_bmcells = 20
-    n_bcells = int(math.floor(n_bmcells/0.7 + 1))
+    n_bmcells = 5
+    n_bcells = int(math.floor(n_bmcells/1.0 + 1))
     max_antigen = [0,0,0,0,0,0,0,0,0,0]
     min_antigen = range(1000,1010,1) 
     
