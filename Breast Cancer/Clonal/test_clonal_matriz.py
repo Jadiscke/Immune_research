@@ -52,7 +52,6 @@ def maior_afinidade(at,test_b,test_m):
         decisao = 'M'
     return decisao
 def tester(max_antigen,min_antigen,antigenos):
-    cord = 10
     n = 3
 
     #Carregar anticorpos
@@ -63,7 +62,6 @@ def tester(max_antigen,min_antigen,antigenos):
     test_b = pickle.load(pickle_read) #anticorpos benignos
     test_m = pickle.load(pickle_read_M) #anticorpos malignos
    
-    distancia = 0
     vp = 0.0 #Verdadeiro Positivo
     vn = 0.0 #Verdadeiro Negativo
     fp = 0.0 #Falso Positivo
@@ -85,16 +83,17 @@ def tester(max_antigen,min_antigen,antigenos):
             
         else:
             if decisao == 'B':
-                fn += 1
-            else:
                 fp += 1
+            else:
+                fn += 1
             errado += 1
         total += 1
     precision = (vp)/(vp + fp) 
     recall = (vp)/(vp + fn)
     f1score = 2 *((precision * recall)/(precision + recall))
     percentual = certo/total
-    imprimir ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
+    imprimir = [percentual,precision,recall,f1score]
+    #imprimir ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
     #Zerar
     vp = 0.0 
     vn = 0.0
@@ -113,9 +112,9 @@ def tester(max_antigen,min_antigen,antigenos):
             certo += 1
         else:
             if decisao == 'B':
-                fn += 1
-            else:
                 fp += 1
+            else:
+                fn += 1
             errado += 1
         total += 1
     
@@ -123,40 +122,8 @@ def tester(max_antigen,min_antigen,antigenos):
     recall = (vp)/(vp + fn)
     f1score = 2 *((precision * recall)/(precision + recall))
     percentual = certo/total
-    imprimir2 ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
-    #Zerar
-    vp = 0.0 
-    vn = 0.0
-    fp = 0.0
-    fn = 0.0
-    certo = 0.0
-    errado = 0.0
-    total = 0.0 
-    n += 2
-    for at in antigenos:
-        decisao = voto(n,at,test_b,test_m)
-        if decisao == at.tipo:
-            if decisao == 'B':
-                vp += 1
-            else:
-                vn += 1
-
-            certo += 1
-        else:
-            if decisao == 'B':
-                fn += 1
-            else:
-                fp += 1
-
-            errado += 1
-        total += 1
-    
-    precision = (vp)/(vp + fp)
-    recall = (vp)/(vp + fn)
-    f1score = 2 *((precision * recall)/(precision + recall))
-    percentual = certo/total
-    imprimir3 ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
-    
+    imprimir2 = [percentual,precision,recall,f1score]
+    #imprimir2 ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
     #Zerar
     vp = 0.0 
     vn = 0.0
@@ -173,12 +140,13 @@ def tester(max_antigen,min_antigen,antigenos):
                 vp += 1
             else:
                 vn += 1
+
             certo += 1
         else:
             if decisao == 'B':
-                fn += 1
-            else:
                 fp += 1
+            else:
+                fn += 1
 
             errado += 1
         total += 1
@@ -187,7 +155,41 @@ def tester(max_antigen,min_antigen,antigenos):
     recall = (vp)/(vp + fn)
     f1score = 2 *((precision * recall)/(precision + recall))
     percentual = certo/total
-    imprimir4 ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
+    imprimir3 = [percentual,precision,recall,f1score]
+    #imprimir3 ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
+    
+    #Zerar
+    vp = 0.0 
+    vn = 0.0
+    fp = 0.0
+    fn = 0.0
+    certo = 0.0
+    errado = 0.0
+    total = 0.0 
+    n += 2
+    for at in antigenos:
+        decisao = voto(n,at,test_b,test_m)
+        if decisao == at.tipo:
+            if decisao == 'B':
+                vp += 1
+            else:
+                vn += 1
+            certo += 1
+        else:
+            if decisao == 'B':
+                fp += 1
+            else:
+                fn += 1
+
+            errado += 1
+        total += 1
+    
+    precision = (vp)/(vp + fp)
+    recall = (vp)/(vp + fn)
+    f1score = 2 *((precision * recall)/(precision + recall))
+    percentual = certo/total
+    imprimir4 = [percentual,precision,recall,f1score]
+    #imprimir4 ="Per- "+str("%.2f" % (percentual*100))+"%\tPrec- "+str("%.2f" %(precision*100)) + "%\tRec- "+str("%.2f" % (recall*100))+ "%\tF1- "+str("%.2f" % (f1score*100))+"%\n"
     
     return (imprimir, imprimir2,imprimir3,imprimir4)
 
@@ -196,17 +198,17 @@ def tester(max_antigen,min_antigen,antigenos):
 if __name__ == "__main__":
     START_TIME = time.time()
     #Arquivos para salvar dados
-    filename1,filename2,filename3,filename4 = 'Afinidade.txt','3votos.txt','5votos.txt','7votos.txt'
+    #filename1,filename2,filename3,filename4 = 'Afinidade.txt','3votos.txt','5votos.txt','7votos.txt'
     
-    try:
-        f1,f2,f3,f4 = open(filename1,"r+"),open(filename2,"r+"),open(filename3,"r+"),open(filename4,"r+")
-    except IOError:
-        f1,f2,f3,f4 = open(filename1,"w"),open(filename2,"w"),open(filename3,"w"),open(filename4,"w")
-    #Escrever no final do Arquivo
-    f1.seek(0,2)
-    f2.seek(0,2)
-    f3.seek(0,2)
-    f4.seek(0,2)
+    # try:
+    #     f1,f2,f3,f4 = open(filename1,"r+"),open(filename2,"r+"),open(filename3,"r+"),open(filename4,"r+")
+    # except IOError:
+    #     f1,f2,f3,f4 = open(filename1,"w"),open(filename2,"w"),open(filename3,"w"),open(filename4,"w")
+    # #Escrever no final do Arquivo
+    # f1.seek(0,2)
+    # f2.seek(0,2)
+    # f3.seek(0,2)
+    # f4.seek(0,2)
     for i in range(10):
         db_separator()
         main_b(False)
@@ -226,22 +228,28 @@ if __name__ == "__main__":
         cord = 10
         # String -> Float
         for elemento in antigenos:
-            for i in range(cord):
-                elemento.coordenadas[i] = float(elemento.coordenadas[i])
+            for k in range(cord):
+                elemento.coordenadas[k] = float(elemento.coordenadas[k])
         #Normalizando todos os antigenos
         for elemento in antigenos:
-            for i in range(cord):
-                elemento.coordenadas[i] = normalizar(elemento.coordenadas[i],min_antigen[i],max_antigen[i])
+            for k in range(cord):
+                elemento.coordenadas[k] = normalizar(elemento.coordenadas[k],min_antigen[k],max_antigen[k])
 
     
         #Testando e escrevendo no arquivo
         t1,t2,t3,t4 = tester(max_antigen,min_antigen,antigenos)
-        f1.write(t1)
-        f2.write(t2)
-        f3.write(t3)
-        f4.write(t4)
-    f1.close()
-    f2.close()  
-    f3.close()  
-    f4.close()              
+        print i
+        print t1
+        print t2
+        print t3
+        print t4
+        print 20 * '-'
+        #f1.write(t1)
+        #f2.write(t2)
+        #f3.write(t3)
+        #f4.write(t4)
+    #f1.close()
+    #f2.close()  
+    #f3.close()  
+    #f4.close()              
     print time.time()-START_TIME

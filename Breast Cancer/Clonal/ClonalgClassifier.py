@@ -90,7 +90,7 @@ def carregar(filename):
 def main_b(printar = True):
     beta = 10
     cord = 10
-    x = 1000
+    x = 500
     n_clones = 4
     n_bmcells = 5
     n_bcells = int(math.floor(n_bmcells/1.0 + 1))
