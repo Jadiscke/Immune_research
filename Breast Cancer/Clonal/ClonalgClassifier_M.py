@@ -94,6 +94,7 @@ def main_m(printar = True):
     n_clones = 4
     n_bmcells = 5
     n_bcells = int(math.floor(n_bmcells/1.0 + 1))
+    #n_bcells =  50
     max_a_file = open("Max_Antigen.p",'r')
     min_a_file = open("Min_Antigen.p",'r')
     max_antigen = pickle.load(max_a_file)

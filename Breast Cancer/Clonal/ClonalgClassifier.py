@@ -94,6 +94,7 @@ def main_b(printar = True):
     n_clones = 4
     n_bmcells = 5
     n_bcells = int(math.floor(n_bmcells/1.0 + 1))
+    #n_bcells = 50
     max_antigen = [0,0,0,0,0,0,0,0,0,0]
     min_antigen = range(1000,1010,1) 
     

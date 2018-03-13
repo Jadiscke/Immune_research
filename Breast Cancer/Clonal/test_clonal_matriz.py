@@ -209,6 +209,11 @@ if __name__ == "__main__":
     # f2.seek(0,2)
     # f3.seek(0,2)
     # f4.seek(0,2)
+    t01 = [0,0,0,0]
+    t02 = [0,0,0,0]
+    t03 = [0,0,0,0]
+    t04 = [0,0,0,0]
+    T0 = [t01,t02,t03,t04]
     for i in range(10):
         db_separator()
         main_b(False)
@@ -235,19 +240,25 @@ if __name__ == "__main__":
             for k in range(cord):
                 elemento.coordenadas[k] = normalizar(elemento.coordenadas[k],min_antigen[k],max_antigen[k])
 
-    
+
         #Testando e escrevendo no arquivo
-        t1,t2,t3,t4 = tester(max_antigen,min_antigen,antigenos)
-        print i
-        print t1
-        print t2
-        print t3
-        print t4
-        print 20 * '-'
+        for x in range(0,10):
+            t1,t2,t3,t4 = tester(max_antigen,min_antigen,antigenos)
+            T = [t1,t2,t3,t4]
+            print str(i)+str(x)
+            print t1
+            print t2
+            print t3
+            print t4
+            print 20 * '-'
+            for n in range (0,4):
+                for k in range(0,4):
+                    T0[n][k] += T[n][k] 
         #f1.write(t1)
         #f2.write(t2)
         #f3.write(t3)
         #f4.write(t4)
+    print T0
     #f1.close()
     #f2.close()  
     #f3.close()  
