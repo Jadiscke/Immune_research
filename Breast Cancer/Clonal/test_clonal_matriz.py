@@ -245,12 +245,12 @@ if __name__ == "__main__":
         for x in range(0,10):
             t1,t2,t3,t4 = tester(max_antigen,min_antigen,antigenos)
             T = [t1,t2,t3,t4]
-            print str(i)+str(x)
-            print t1
-            print t2
-            print t3
-            print t4
-            print 20 * '-'
+            # print str(i)+str(x)
+            # print t1
+            # print t2
+            # print t3
+            # print t4
+            # print 20 * '-'
             for n in range (0,4):
                 for k in range(0,4):
                     T0[n][k] += T[n][k] 
@@ -261,6 +261,5 @@ if __name__ == "__main__":
     print T0
     #f1.close()
     #f2.close()  
-    #f3.close()  
     #f4.close()              
     print time.time()-START_TIME
